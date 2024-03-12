@@ -19,10 +19,11 @@ This is a simple weather app built using HTML, CSS, and JavaScript. It allows us
 
 ## How to Use
 
- Clone the repository to your local machine:
+Clone the repository to your local machine:
 
 ```bash
 git clone https://github.com/Saravanarajan29/Simple-Weather-App.git
+```
 
 1.Open the index.html file in your web browser.
 
@@ -40,5 +41,5 @@ This app uses the OpenWeatherMap API to fetch weather data. You'll need to sign 
 
 ## Author 
 
-Developed by **Saravanarajan**
+Developed by **Saravanarajan**.
 
