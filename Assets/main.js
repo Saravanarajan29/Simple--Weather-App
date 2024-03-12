@@ -1,47 +1,43 @@
-
 const weatherForm = document.querySelector(".weatherForm");
 const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
 const apiKey = "9129f4fdbd14d66f3e0387bc6d8ae0fa";
 
-weatherForm.addEventListener("submit", async event =>{
-
+weatherForm.addEventListener("submit", async event => {
     event.preventDefault();
 
     const city = cityInput.value;
 
-    if(city){
-        try{
+    if (city) {
+        try {
             const weatherData = await getWeatherData(city);
             displayWeatherInfo(weatherData);
-        }
-        catch(error){
+            displayCurrentTime(); // Add this line to display current time
+        } catch (error) {
             console.error(error);
             displayError(error);
         }
+    } else {
+        displayError("Please enter a city");
     }
-    else{
-        displayError("please enter a city");
-    }
-})
-async function getWeatherData(city){
+});
+
+async function getWeatherData(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
     const response = await fetch(apiUrl);
 
-    if(!response.ok){
-        throw new error("could not fetch weather data");
+    if (!response.ok) {
+        throw new Error("Could not fetch weather data");
     }
 
-    return await response.json();  
+    return await response.json();
 }
-function displayWeatherInfo(data){
 
-    const {name: city,
-            main: {temp, humidity},
-            weather: [{description, id}]} = data;
+function displayWeatherInfo(data) {
+    const { name: city, main: { temp, humidity }, weather: [{ description, id }] } = data;
 
-    card.textContent ="";
+    card.textContent = "";
     card.style.display = "flex";
 
     const cityDisplay = document.createElement("h1");
@@ -49,13 +45,12 @@ function displayWeatherInfo(data){
     const humidityDisplay = document.createElement("p");
     const descDisplay = document.createElement("p");
     const weatherEmoji = document.createElement("p");
-    
+
     cityDisplay.textContent = city;
-    tempDisplay.textContent = `${((temp - 273.15) *(9/5) + 32).toFixed(1)}°C`; 
-    humidityDisplay.textContent = `Humdity: ${humidity}%`;
+    tempDisplay.textContent = `${((temp - 273.15) * (9 / 5) + 32).toFixed(1)}°C`;
+    humidityDisplay.textContent = `Humidity: ${humidity}%`;
     descDisplay.textContent = description;
     weatherEmoji.textContent = getWeatherEmoji(id);
-
 
     cityDisplay.classList.add("cityDisplay");
     tempDisplay.classList.add("tempDisplay");
@@ -69,9 +64,9 @@ function displayWeatherInfo(data){
     card.appendChild(descDisplay);
     card.appendChild(weatherEmoji);
 }
-function getWeatherEmoji(weatherId){
 
-    switch(true){
+function getWeatherEmoji(weatherId) {
+    switch (true) {
         case (weatherId >= 200 && weatherId < 300):
             return "⛈️ ";
         case (weatherId >= 300 && weatherId < 400):
@@ -89,9 +84,9 @@ function getWeatherEmoji(weatherId){
         default:
             return "❓";
     }
-
 }
-function displayError(message){
+
+function displayError(message) {
     const errorDisplay = document.createElement("p");
     errorDisplay.textContent = message;
     errorDisplay.classList.add("errorDisplay");
@@ -99,4 +94,13 @@ function displayError(message){
     card.textContent = "";
     card.style.display = "flex";
     card.appendChild(errorDisplay);
+}
+
+// Function to display current time
+function displayCurrentTime() {
+    const currentTimeElement = document.createElement("p");
+    currentTimeElement.classList.add("currentTimeDisplay");
+    const currentTime = new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" });
+    currentTimeElement.textContent = `Current Time (IST): ${currentTime}`;
+    card.appendChild(currentTimeElement);
 }

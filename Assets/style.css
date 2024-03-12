@@ -43,7 +43,7 @@ button[type ="submit"]:hover{
 }
 h1{
     margin-top: 0;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 p{
     font-size: 1rem;
@@ -53,11 +53,11 @@ p{
     font-size: 3rem;
     font-weight: bold;
     color: hsl(0, 0%, 0%, 0.75);
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 .humidityDisplay{
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 }
 .descDisplay{
     font-style: italic;
@@ -73,6 +73,14 @@ p{
     font-weight: bold;
     margin-top: 10px;
     color: hsla(0, 0%, 10%);
+}
+.currentTimeDisplay {
+    padding: 5px;
+    font-size: 18px;
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px white;
 }
 @media (max-width: 700px) and (min-width: 400px){
     .weatherForm {
