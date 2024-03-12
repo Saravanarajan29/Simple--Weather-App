@@ -1,5 +1,6 @@
 # Simple Weather App
 
+## Overview
 This is a simple weather app built using HTML, CSS, and JavaScript. It allows users to enter a city name and view the current weather conditions for that city.
 
 ## Features
@@ -17,4 +18,23 @@ This is a simple weather app built using HTML, CSS, and JavaScript. It allows us
 ## How to Use
 
 1. Clone the repository to your local machine:
+git clone https://github.com/your-username/simple-weather-app.git
+
+3. Open the `index.html` file in your web browser.
+
+4. Enter the name of a city in the input field and press enter.
+
+5. The app will display the current weather conditions for the entered city.
+
+## APIs Used
+
+This app uses the OpenWeatherMap API to fetch weather data. You'll need to sign up for an API key [here](https://openweathermap.org/api) and replace the placeholder API key in the `script.js` file with your own API key.
+
+## Credits
+
+- Weather icons courtesy of [OpenWeatherMap](https://openweathermap.org/weather-conditions)
+
+## Author 
+
+Developed by **Saravanarajan**
 
