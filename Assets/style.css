@@ -74,3 +74,40 @@ p{
     margin-top: 10px;
     color: hsla(0, 0%, 10%);
 }
+@media (max-width: 700px) and (min-width: 400px){
+    .weatherForm {
+        margin: 20px;
+        display: contents;
+    }
+    .cityInput {
+        margin: 25px 0px;
+        text-align: center;
+    }
+    .card {
+        margin: 25px 0px;
+    }
+    button[type ="submit"] {
+        margin-bottom: 25px;
+    }
+}
+@media (max-width: 400px){
+    .weatherForm {
+        margin: 20px;
+        display: contents;
+    }
+    .cityInput {
+        margin: 25px 0px;
+        max-width: 75%;
+        font-size: 25px;
+        text-align: center;
+    }
+    .card {
+        margin: 15px 0px;
+        padding: 0px;
+    }
+    button[type ="submit"] {
+        margin-bottom: 25px;
+        max-width: 50%;
+        font-size: 20px;
+    }
+}
