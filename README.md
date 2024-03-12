@@ -1,6 +1,6 @@
 # Simple Weather App
 
-![Weather App Preview](goOverview.png)
+![Weather App Preview](Overview.png)
 
 ## Overview
 This is a simple weather app built using HTML, CSS, and JavaScript. It allows users to enter a city name and view the current weather conditions for that city.
